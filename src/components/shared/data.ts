@@ -87,6 +87,7 @@ export const packages: Package[] = [
     recommended: false,
     gradient: "from-blue-50 to-blue-100",
     borderColor: "border-blue-200",
+    Question: ""
   },
   {
     name: "Standard",
@@ -101,10 +102,11 @@ export const packages: Package[] = [
     recommended: false,
     gradient: "from-green-50 to-green-100",
     borderColor: "border-green-200",
+    Question: ""
   },
   {
     name: "Premium",
-    price: "150.000",
+    price: "150.000+",
     features: [
       "Pengerjaan tugas coding tanpa batas (skala kecil-menengah)",
       "Kode berkualitas tinggi & dokumentasi lengkap",
@@ -115,7 +117,25 @@ export const packages: Package[] = [
     recommended: true,
     gradient: "from-purple-50 to-purple-100",
     borderColor: "border-purple-200",
+    Question: ""
   },
+  // {
+  //   name: "Skripsi / Magang",
+  //   price: "300.000+",
+  //   features: [
+  //     "Full pengerjaan sistem dari nol (bisa website, desktop, mobile, dll)",
+  //     "Dapat dokumentasi teknis (struktur folder, cara run, penjelasan fitur)",
+  //     "Stack fleksibel: Python, Java, C++, PHP, Laravel, React, dsb",
+  //     "Bisa request revisi teknis",
+  //     "Estimasi 3–7 hari pengerjaan (bisa dibahas)",
+  //     "Konsultasi ringan via chat",
+  //     "❌ Tidak termasuk pembuatan laporan bab 1–5",
+  //     "❌ Tidak termasuk revisi dosen non-teknis",
+  //   ],
+  //   recommended: true,
+  //   gradient: "from-yellow-50 to-yellow-100",
+  //   borderColor: "border-yellow-200",
+  // },
 ];
 
 export const services: Service[] = [
@@ -124,28 +144,24 @@ export const services: Service[] = [
     title: "Bantuan Tugas Coding Cepat & Terpercaya",
     description:
       "Kami siap menyelesaikan tugas coding kamu dengan hasil yang akurat dan tepat waktu — tanpa ribet dan penuh tekanan.",
-    color: "from-blue-500 to-purple-600",
   },
   {
     icon: Globe,
     title: "Desain Website & Kode Modern",
     description:
       "Dapatkan solusi coding dengan kualitas kode bersih dan desain modern yang bisa langsung kamu gunakan.",
-    color: "from-green-500 to-teal-600",
   },
   {
     icon: Shield,
     title: "Solusi Joki Tugas Lengkap dan Andal",
     description:
       "Mulai dari tugas kecil hingga proyek besar, tim ahli kami siap membantu kamu menyelesaikan tugas coding dengan hasil terbaik.",
-    color: "from-purple-500 to-pink-600",
   },
   {
     icon: Zap,
     title: "Integrasi Lengkap Untuk Kemudahan Kamu",
     description:
       "Kami mendukung berbagai platform dan tools coding populer agar tugas kamu selesai dengan mudah dan cepat.",
-    color: "from-orange-500 to-red-600",
   },
 ];
 

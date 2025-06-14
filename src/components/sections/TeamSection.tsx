@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { team } from "../shared/data";
 import Image from "next/image";
 import Icon from "../ui/SocialIcons";
+import Link from "next/link";
 
 const TeamSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -57,15 +58,15 @@ const TeamSection: React.FC = () => {
             </h3>
             <p className="text-gray-500 mb-4">{person.role}</p>
             <div className="flex justify-center space-x-4 text-gray-500">
-              <a href="#" aria-label="Instagram">
+              <Link href="#" aria-label="Instagram">
                 <Icon.Ig className="w-5 h-5 hover:text-gray-700 transition" />
-              </a>
-              <a href="#" aria-label="X (Twitter)">
+              </Link>
+              <Link href="#" aria-label="X (Twitter)">
                 <Icon.X className="w-5 h-5 hover:text-gray-700 transition" />
-              </a>
-              <a href="#" aria-label="Facebook">
+              </Link>
+              <Link href="#" aria-label="Facebook">
                 <Icon.Fb className="w-5 h-5 hover:text-gray-700 transition" />
-              </a>
+              </Link>
             </div>
           </div>
         ))}

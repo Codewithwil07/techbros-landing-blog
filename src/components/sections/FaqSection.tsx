@@ -24,7 +24,7 @@ const FaqSection: React.FC = () => {
           <p className="text-xl text-gray-600">
             Kami telah mengumpulkan jawaban atas pertanyaan umum terkait layanan
             joki tugas coding agar kamu lebih mudah memahami cara kerja dan
-            manfaat techbros.id.
+            manfaat techbros
           </p>
         </div>
 

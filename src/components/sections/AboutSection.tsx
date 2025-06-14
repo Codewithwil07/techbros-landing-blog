@@ -3,10 +3,11 @@
 import React from "react";
 import { Code, Database, Smartphone, Globe } from "lucide-react";
 import LinkButton from "../ui/LinkButton";
+import { Components } from "../shared/types";
 
-const AboutSection: React.FC = () => {
+const AboutSection: React.FC<Components> = ({ClassName = ''}) => {
   return (
-    <section className="py-20 bg-section px-4 sm:px-6 lg:px-8">
+    <section className={`py-20 bg-section px-4 sm:px-6 lg:px-8 ${ClassName}`}>
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* LEFT CONTENT */}
@@ -34,7 +35,7 @@ const AboutSection: React.FC = () => {
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-4">
               <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <div className="w-12 h-12 bg-gradient-to-r from-gray-600 to-gray-400 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
                   <Code className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="font-bold text-gray-800 mb-2">
@@ -45,7 +46,7 @@ const AboutSection: React.FC = () => {
                 </p>
               </div>
               <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <div className="w-12 h-12 bg-gradient-to-r from-gray-600 to-gray-400 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
                   <Database className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="font-bold text-gray-800 mb-2">Database</h3>
@@ -57,7 +58,7 @@ const AboutSection: React.FC = () => {
 
             <div className="space-y-4 mt-8">
               <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <div className="w-12 h-12 bg-gradient-to-r from-gray-600 to-gray-400 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
                   <Smartphone className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="font-bold text-gray-800 mb-2">Mobile Apps</h3>
@@ -66,7 +67,7 @@ const AboutSection: React.FC = () => {
                 </p>
               </div>
               <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <div className="w-12 h-12 bg-gradient-to-r from-gray-600 to-gray-400 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
                   <Globe className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="font-bold text-gray-800 mb-2">Algoritma</h3>

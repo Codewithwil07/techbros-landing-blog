@@ -23,13 +23,13 @@ export type Package = {
   recommended: boolean;
   gradient: string;
   borderColor: string;
+  question: string;
 };
 
 export type Service = {
   icon: React.ElementType; // ✅ juga ini
   title: string;
   description: string;
-  color: string;
 };
 
 export type Team = {

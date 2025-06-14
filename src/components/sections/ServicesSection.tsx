@@ -17,7 +17,7 @@ const ServicesSection: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
             Layanan Utama{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-700 to-gray-500">
-              techbros.id
+              Techbros
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -40,7 +40,7 @@ const ServicesSection: React.FC = () => {
                 style={{ animationDelay: `${index * 200}ms` }}
               >
                 <div
-                  className="w-16 h-16 bg-gradient-to-r from-gray-600 to-gray-400 rounded-xl flex items-center justify-center mb-6 text-white shadow-lg group-hover:shadow-xl"
+                  className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-6 text-white shadow-lg group-hover:shadow-xl"
                 >
                   <Icon className="w-6 h-6" />
                 </div>

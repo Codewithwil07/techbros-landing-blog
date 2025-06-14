@@ -3,6 +3,8 @@
 import React from "react";
 import { Code } from "lucide-react";
 import { FooterBackground } from "./Abstract";
+import Link from "next/link";
+import Icon from "./SocialIcons";
 
 const Footer: React.FC = () => {
   return (
@@ -21,6 +23,17 @@ const Footer: React.FC = () => {
               Jasa joki tugas coding cepat dan amanah nomor 1 di Indonesia.
               Solusi cepat dan profesional untuk semua kebutuhan coding kamu.
             </p>
+            <div className="flex space-x-4 text-gray-500">
+              <Link href="#" aria-label="Instagram">
+                <Icon.Ig className="w-5 h-5 hover:text-gray-700 transition" />
+              </Link>
+              <Link href="#" aria-label="X (Twitter)">
+                <Icon.X className="w-5 h-5 hover:text-gray-700 transition" />
+              </Link>
+              <Link href="#" aria-label="Facebook">
+                <Icon.Fb className="w-5 h-5 hover:text-gray-700 transition" />
+              </Link>
+            </div>
           </div>
 
           <div>

@@ -10,9 +10,7 @@ type PricingCardProps = {
 const PricingCard: React.FC<PricingCardProps> = ({ data }) => {
   return (
     <div
-      className={`relative bg-white ${
-        data.gradient
-      } rounded-3xl p-8 border-2 ${
+      className={`relative bg-white ${data.gradient} rounded-3xl p-8 border-2 ${
         data.borderColor
       } hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 ${
         data.recommended ? "scale-105 shadow-xl" : ""
@@ -44,8 +42,11 @@ const PricingCard: React.FC<PricingCardProps> = ({ data }) => {
       </div>
 
       <LinkButton
-        className="w-full text-black"
+        className="w-full"
         variant={data.recommended ? "solid" : "outline"}
+        href={`https://wa.me/6287767978358?text=${data.question}`}
+        target="_blank"
+        rel="noopener noreferrer"
       >
         Pilih Paket
       </LinkButton>

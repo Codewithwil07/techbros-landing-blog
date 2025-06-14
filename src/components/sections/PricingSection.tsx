@@ -11,6 +11,7 @@ const PricingSection: React.FC = () => {
       className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200"
     >
       <div className="max-w-7xl mx-auto">
+        {/* Heading */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
             Pilih Paket Joki Tugas{" "}
@@ -24,7 +25,17 @@ const PricingSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Card Grid */}
+        <div
+          className="
+            grid 
+            grid-cols-1 
+            sm:grid-cols-2 
+            lg:grid-cols-3 
+            gap-8 
+            place-items-center
+          "
+        >
           {packages.map((pkg, index) => (
             <PricingCard key={index} data={pkg} />
           ))}

@@ -27,7 +27,7 @@ const TestimonialsSection: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
             Apa Kata Mereka Tentang{" "}
             <span className="bg-gradient-to-r from-gray-700 to-gray-900 bg-clip-text text-transparent">
-              stacktugas.id
+              Techbros
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">

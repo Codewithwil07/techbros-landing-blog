@@ -66,7 +66,7 @@ export const FooterBackground: React.FC = () => {
   return (
     <svg
       viewBox="0 0 1440 400"
-      className="absolute w-full h-full left-0 top-0 -z-10"
+      className="absolute w-full h-full left-0 top-48 -z-10"
       preserveAspectRatio="none"
     >
       <defs>
