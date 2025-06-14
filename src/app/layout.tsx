@@ -1,0 +1,35 @@
+import type { Metadata } from "next";
+import { Montserrat } from "next/font/google";
+import "./globals.css";
+import Navbar from "@/components/ui/Navbar";
+import Footer from "@/components/ui/Footer";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
+  variable: "--font-montserrat",
+});
+
+export const metadata: Metadata = {
+  title: "techbros.id | Joki Tugas Coding Cepat & Amanah No 1 di Indonesia",
+  description: "Jasa Joki Tugas Coding Cepat & Amanah No 1 di Indonesia",
+  icons: {
+    icon: '/favicon.png'
+  }
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" className={`${montserrat.className}`}>
+      <body className="">
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
+    </html>
+  );
+}

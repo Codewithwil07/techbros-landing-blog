@@ -1,0 +1,20 @@
+@import 'tailwindcss';
+
+.stats-icon-group::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(59, 130, 246, 0.2); 
+  border-radius: 0.125rem; /* rounded-sm */
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.stats-icon-group:hover::before {
+  transform: rotate(60deg);
+}
+
+
+
