@@ -32,23 +32,18 @@ export const DotAbstrcat: React.FC<Components> = ({ ClassName = "" }) => {
 
 export const CircleAbstract: React.FC = () => {
   return (
-    <div className="absolute w-screen left-0 bottom-0 z-10">
-      <svg viewBox="0 0 1440 400">
-        <circle cx="250" cy="200" r="150" fill="rgba(255, 255, 255, 0.04)" />
-        <circle cx="1250" cy="120" r="130" fill="rgba(255, 255, 255, 0.06)" />
-        <circle
-          cx="700"
-          cy="300"
-          r="120"
-          fill="none"
-          stroke="rgba(255,255,255,0.07)"
-          strokeWidth="40"
-        />
-        <circle cx="-100" cy="-100" r="300" fill="rgba(255,255,255,0.05)" />
-      </svg>
-    </div>
+    <svg
+      viewBox="0 0 1440 600"
+      className="absolute w-screen left-40 -bottom-10 -z-10 overflow-visible"
+    >
+      <circle cx="250" cy="200" r="150" fill="rgba(255, 255, 255, 0.09)" />
+      <circle cx="1250" cy="120" r="130" fill="rgba(255, 255, 255, 0.09)" />
+      <circle cx="700" cy="360" r="140" fill="rgba(255, 255, 255, 0.03)" />
+      <circle cx="700" cy="360" r="100" fill="rgba(255, 255, 255, 0.09)" />
+    </svg>
   );
 };
+  
 
 export const WaveAbstract: React.FC<Components> = ({ ClassName = "" }) => {
   return (

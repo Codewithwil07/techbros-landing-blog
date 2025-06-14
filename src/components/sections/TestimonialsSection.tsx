@@ -20,13 +20,13 @@ const TestimonialsSection: React.FC = () => {
   return (
     <section
       id="testimonial"
-      className="py-20 bg-gradient-to-r from-blue-50 to-indigo-100 px-4 sm:px-6 lg:px-8"
+      className="py-20 bg-gradient-to-r from-gray-50 to-gray-200 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
             Apa Kata Mereka Tentang{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gray-700 to-gray-900 bg-clip-text text-transparent">
               stacktugas.id
             </span>
           </h2>
@@ -79,8 +79,8 @@ const TestimonialsSection: React.FC = () => {
                 onClick={() => setActiveTestimonial(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === activeTestimonial
-                    ? "bg-blue-600 scale-125"
-                    : "bg-gray-300 hover:bg-gray-400"
+                    ? "bg-gray-700 scale-125"
+                    : "bg-gray-400 hover:bg-gray-500"
                 }`}
               />
             ))}

@@ -1,30 +1,33 @@
-"use client";
+'use client';
 
-import React from "react";
-import type { AnchorHTMLAttributes, ReactNode } from "react";
+import React from 'react';
+import type { AnchorHTMLAttributes, ReactNode } from 'react';
 
 type LinkButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
-  variant?: "solid" | "outline";
+  variant?: 'solid' | 'outline';
   children: ReactNode;
 };
 
 const LinkButton: React.FC<LinkButtonProps> = ({
-  variant = "solid",
+  variant = 'solid',
   children,
-  className = "",
+  className = '',
   ...props
 }) => {
   const baseStyles =
-    "inline-block px-6 py-3 rounded-full font-semibold transition-all duration-300";
+    'inline-block px-6 py-3 rounded-full font-semibold transition-all duration-300';
+
   const variants = {
-    solid:
-      "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg hover:scale-105",
-    outline:
-      "border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white",
+    solid: 'bg-primary text-bg hover:shadow-lg text-white hover:scale-105',
+    outline: 'border-2 border-primary text-black hover:bg-primary hover:text-bg',
   };
 
   return (
-    <a className={`${baseStyles} ${variants[variant]} ${className}`} {...props} href="#beranda">
+    <a
+      className={`${baseStyles} ${variants[variant]} ${className}`}
+      {...props}
+      href={props.href || '#beranda'}
+    >
       {children}
     </a>
   );

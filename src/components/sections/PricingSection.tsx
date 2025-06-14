@@ -6,12 +6,15 @@ import PricingCard from "../ui/PricingCard";
 
 const PricingSection: React.FC = () => {
   return (
-    <section id="paket" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <section
+      id="paket"
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
             Pilih Paket Joki Tugas{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gray-700 to-gray-900 bg-clip-text text-transparent">
               Codingmu
             </span>
           </h2>

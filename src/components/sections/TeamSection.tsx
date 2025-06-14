@@ -14,11 +14,11 @@ const TeamSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-50 to-indigo-100">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-gray-50 to-gray-200">
       <div className="max-w-7xl mx-auto text-center mb-12">
         <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
           Kenali Tim Ahli{" "}
-          <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-gray-700 to-gray-900 bg-clip-text text-transparent">
             techbros
           </span>
         </h2>
@@ -57,14 +57,14 @@ const TeamSection: React.FC = () => {
             </h3>
             <p className="text-gray-500 mb-4">{person.role}</p>
             <div className="flex justify-center space-x-4 text-gray-500">
-              <a href="#" aria-label="Facebook">
-                <Icon.Ig className="w-5 h-5 hover:text-blue-600 transition" />
-              </a>
-              <a href="#" aria-label="Twitter">
-                <Icon.X className="w-5 h-5 hover:text-sky-500 transition" />
-              </a>
               <a href="#" aria-label="Instagram">
-                <Icon.Fb className="w-5 h-5 hover:text-pink-500 transition" />
+                <Icon.Ig className="w-5 h-5 hover:text-gray-700 transition" />
+              </a>
+              <a href="#" aria-label="X (Twitter)">
+                <Icon.X className="w-5 h-5 hover:text-gray-700 transition" />
+              </a>
+              <a href="#" aria-label="Facebook">
+                <Icon.Fb className="w-5 h-5 hover:text-gray-700 transition" />
               </a>
             </div>
           </div>

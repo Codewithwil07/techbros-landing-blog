@@ -11,12 +11,12 @@ const ServicesSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="layanan" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-50 to-indigo-100">
+    <section id="layanan" className="py-20 px-4 sm:px-6 lg:px-8 bg-section">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
             Layanan Utama{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-700 to-gray-500">
               techbros.id
             </span>
           </h2>
@@ -40,17 +40,16 @@ const ServicesSection: React.FC = () => {
                 style={{ animationDelay: `${index * 200}ms` }}
               >
                 <div
-                  className={`w-16 h-16 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center mb-6 text-white shadow-lg group-hover:shadow-xl`}
+                  className="w-16 h-16 bg-gradient-to-r from-gray-600 to-gray-400 rounded-xl flex items-center justify-center mb-6 text-white shadow-lg group-hover:shadow-xl"
                 >
                   <Icon className="w-6 h-6" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-800 mb-4 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-2xl font-bold text-gray-800 mb-4 group-hover:text-gray-700 transition-colors">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">
                   {service.description}
                 </p>
-                {/* <Button>Pesan Sekarang</Button> */}
               </div>
             );
           })}

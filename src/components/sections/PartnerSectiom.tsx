@@ -6,14 +6,14 @@ import Image from "next/image";
 
 const PartnersSection: React.FC = () => {
   return (
-    <section className="py-20 bg-white text-center   bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-      <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+    <section className="py-20 bg-section-dark text-center">
+      <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
         Official Partners
       </h2>
-      <p className="text-gray-600 max-w-2xl mx-auto mb-8 text-lg">
-        techbros.id adalah kolaborasi dari berbagai tim joki coding profesional, 
+      <p className="text-gray-400 max-w-2xl mx-auto mb-8 text-lg">
+        techbros.id adalah kolaborasi dari berbagai tim joki coding profesional,
         siap membantu menyelesaikan tugas kamu dengan cepat, akurat, dan terpercaya.
-      </p>  
+      </p>
       <div className="flex flex-wrap justify-center items-center gap-10 mt-12 px-4">
         {logos.map((logo, i) => (
           <Image
@@ -22,7 +22,7 @@ const PartnersSection: React.FC = () => {
             alt={logo.name}
             width={60}
             height={20}
-            className="h-16 opacity-80 hover:opacity-100 transition"
+            className="h-16 opacity-70 hover:opacity-100 transition"
           />
         ))}
       </div>

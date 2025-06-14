@@ -10,7 +10,7 @@ type PricingCardProps = {
 const PricingCard: React.FC<PricingCardProps> = ({ data }) => {
   return (
     <div
-      className={`relative bg-gradient-to-br ${
+      className={`relative bg-white ${
         data.gradient
       } rounded-3xl p-8 border-2 ${
         data.borderColor
@@ -20,7 +20,7 @@ const PricingCard: React.FC<PricingCardProps> = ({ data }) => {
     >
       {data.recommended && (
         <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-          <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+          <div className="bg-primary text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
             Recommended
           </div>
         </div>
@@ -44,7 +44,7 @@ const PricingCard: React.FC<PricingCardProps> = ({ data }) => {
       </div>
 
       <LinkButton
-        className="w-full"
+        className="w-full text-black"
         variant={data.recommended ? "solid" : "outline"}
       >
         Pilih Paket
