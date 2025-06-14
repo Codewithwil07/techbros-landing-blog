@@ -72,7 +72,7 @@ const Navbar: React.FC = () => {
           isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="px-4 py-4 space-y-3">
+        <div className="flex flex-col items-center px-4 py-4 space-y-3">
           {["beranda", "tentang", "harga", "kontak"].map((item) => {
             const path = item === "beranda" ? "/" : `/${item}`;
             return (
@@ -87,7 +87,7 @@ const Navbar: React.FC = () => {
           })}
           <a
             href="https://wa.me/6287767978358?text=Halo%20saya%20tertarik%20dengan%20layanan%20Anda"
-            className="block bg-primary text-bg px-4 py-2 rounded-lg text-center"
+            className="block bg-primary text-bg px-4 py-2 rounded-lg text-center w-96"
           >
             Hubungi Kami
           </a>
