@@ -87,7 +87,9 @@ export const packages: Package[] = [
     recommended: false,
     gradient: "from-blue-50 to-blue-100",
     borderColor: "border-blue-200",
-    Question: ""
+    question: encodeURIComponent(
+      "Halo, saya tertarik dengan layanan Anda untuk paket Basic"
+    ),
   },
   {
     name: "Standard",
@@ -102,7 +104,9 @@ export const packages: Package[] = [
     recommended: false,
     gradient: "from-green-50 to-green-100",
     borderColor: "border-green-200",
-    Question: ""
+    question: encodeURIComponent(
+      "Halo, saya tertarik dengan layanan Anda untuk paket Standard"
+    ),
   },
   {
     name: "Premium",
@@ -117,7 +121,9 @@ export const packages: Package[] = [
     recommended: true,
     gradient: "from-purple-50 to-purple-100",
     borderColor: "border-purple-200",
-    Question: ""
+    question: encodeURIComponent(
+      "Halo, saya tertarik dengan layanan Anda untuk paket Premium"
+    ),
   },
   // {
   //   name: "Skripsi / Magang",
