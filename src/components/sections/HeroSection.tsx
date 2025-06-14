@@ -54,8 +54,8 @@ const HeroSection: React.FC = () => {
           isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
         }`}
       >
-        <DotAbstrcat ClassName="-top-14 left-40 -z-10" />
-        <DotAbstrcat ClassName="-bottom-6 right-32 -z-10" />
+        <DotAbstrcat ClassName="-top-8 md:-top-14 md:left-40 -z-10" />
+        <DotAbstrcat ClassName="top-60 left-52 md:top-40 md:left-[58rem] -z-10" />
 
         <div className="bg-gray-900 rounded-t-2xl w-2/3 mx-auto p-8 font-mono text-green-400 shadow-inner">
           <div className="flex items-center gap-2 mb-4">
