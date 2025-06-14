@@ -151,26 +151,25 @@ export const services: Service[] = [
 
 export const team: Team[] = [
   {
-    name: "Wingo",
-    role: "Web Developer",
-    avatar:
-      "https://images.unsplash.com/photo-1584999734482-0361aecad844?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGhvdG8lMjBwcm9maWxlfGVufDB8fDB8fHww",
+    name: " Parker Wang",
+    role: "Head of Teach / Fullstack Dev",
+    avatar: "/teamhead.jpeg",
   },
   {
     name: "Dony Kazama",
-    role: "App Developer",
+    role: "Backend Dev",
     avatar:
       "https://images.unsplash.com/photo-1611403119860-57c4937ef987?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     name: "Sherlina Ayu",
-    role: "UI/UX Division",
+    role: "UI/UX Designer",
     avatar:
       "https://images.unsplash.com/photo-1677168916969-e5a4af982664?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     name: "Mawar Eva",
-    role: "Front-end Developer",
+    role: "Frontend Dev",
     avatar:
       "https://plus.unsplash.com/premium_photo-1679064458881-76904cf6d1aa?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
@@ -186,12 +185,7 @@ export const logos: Logos[] = [
     src: "https://img.icons8.com/?size=96&id=kOSQES6o7X1Z&format=png",
   },
   {
-    name: "TailGrids",
+    name: "ZoneEnjoy",
     src: "https://img.icons8.com/?size=96&id=Q7zerQ0gSSTU&format=png",
   },
-  {
-    name: "Kod",
-    src: "/favicon",
-  },
 ];
-

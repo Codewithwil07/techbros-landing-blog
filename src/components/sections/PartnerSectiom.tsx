@@ -12,7 +12,8 @@ const PartnersSection: React.FC = () => {
       </h2>
       <p className="text-gray-400 max-w-2xl mx-auto mb-8 text-lg">
         techbros.id adalah kolaborasi dari berbagai tim joki coding profesional,
-        siap membantu menyelesaikan tugas kamu dengan cepat, akurat, dan terpercaya.
+        siap membantu menyelesaikan tugas kamu dengan cepat, akurat, dan
+        terpercaya.
       </p>
       <div className="flex flex-wrap justify-center items-center gap-10 mt-12 px-4">
         {logos.map((logo, i) => (

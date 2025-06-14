@@ -43,7 +43,6 @@ export const CircleAbstract: React.FC = () => {
     </svg>
   );
 };
-  
 
 export const WaveAbstract: React.FC<Components> = ({ ClassName = "" }) => {
   return (
@@ -72,24 +71,25 @@ export const FooterBackground: React.FC = () => {
     >
       <defs>
         <linearGradient id="bgGradient" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#1e293b" />
-          <stop offset="100%" stopColor="#0f172a" />
+          <stop offset="0%" stopColor="#111111" /> {/* hitam dengan abu-abu sangat gelap */}
+          <stop offset="100%" stopColor="#000000" /> {/* hitam pekat */}
         </linearGradient>
         <linearGradient id="shineGradient" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="rgba(255,255,255,0.05)" />
+          <stop offset="0%" stopColor="rgba(255,255,255,0.04)" /> {/* sedikit kilap */}
           <stop offset="100%" stopColor="rgba(0,0,0,0)" />
         </linearGradient>
       </defs>
 
-      {/* background gelap */}
+      {/* background hitam + abu gelap */}
       <rect width="1440" height="400" fill="url(#bgGradient)" />
 
-      {/* kilap miring putih */}
+      {/* kilap miring tipis */}
       <polygon
         points="0,0 400,0 1440,400 1040,400"
         fill="url(#shineGradient)"
       />
-      {/* kilap miring hitam tipis */}
+
+      {/* kilap miring hitam sangat tipis */}
       <polygon
         points="0,0 200,0 1240,400 1040,400"
         fill="rgba(0,0,0,0.1)"
