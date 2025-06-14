@@ -20,9 +20,10 @@ const PartnersSection: React.FC = () => {
             key={i}
             src={logo.src}
             alt={logo.name}
-            width={60}
-            height={20}
-            className="h-16 opacity-70 hover:opacity-100 transition"
+            width={50}
+            height={50}
+            placeholder="empty"
+            className="h-16 w-16 opacity-70 hover:opacity-100 transition"
           />
         ))}
       </div>

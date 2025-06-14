@@ -2,12 +2,12 @@
 
 import React from "react";
 import { Code } from "lucide-react";
-import { CircleAbstract } from "./Abstract";
+import { FooterBackground } from "./Abstract";
 
 const Footer: React.FC = () => {
   return (
     <footer className="bg-section-dark text-bg py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden z-20">
-      <CircleAbstract />
+      <FooterBackground />
       <div className="max-w-7xl mx-auto z-40">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">

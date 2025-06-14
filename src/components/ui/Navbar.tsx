@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Code, Menu, X } from "lucide-react";
+import {  Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,12 +20,7 @@ const Navbar: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between py-4">
             <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <Code className="w-6 h-6 text-bg" />
-              </div>
-              <span className="text-2xl font-bold bg-primary bg-clip-text text-transparent">
-                techbros
-              </span>
+              <Image src={'/logos.png'} width={100} height={100} alt="logo" className="absolute"/>
             </div>
 
             <div className="hidden md:flex items-center space-x-8">
@@ -77,7 +73,7 @@ const Navbar: React.FC = () => {
             </a>
           ))}
           <a
-            href="#kontak"
+            href="https://wa.me/6287767978358?text=Halo%20saya%20tertarik%20dengan%20layanan%20Anda"
             className="block bg-primary text-bg px-4 py-2 rounded-lg text-center"
           >
             Hubungi Kami

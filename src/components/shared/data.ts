@@ -151,25 +151,28 @@ export const services: Service[] = [
 
 export const team: Team[] = [
   {
-    name: "Hansi Garcia",
+    name: "Wingo",
     role: "Web Developer",
     avatar:
       "https://images.unsplash.com/photo-1584999734482-0361aecad844?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGhvdG8lMjBwcm9maWxlfGVufDB8fDB8fHww",
   },
   {
-    name: "Lamine Fort",
+    name: "Dony Kazama",
     role: "App Developer",
-    avatar: "https://randomuser.me/api/portraits/men/89.jpg",
+    avatar:
+      "https://images.unsplash.com/photo-1611403119860-57c4937ef987?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    name: "Sophia Ann",
-    role: "UI/UX Developer",
-    avatar: "https://randomuser.me/api/portraits/women/45.jpg",
+    name: "Sherlina Ayu",
+    role: "UI/UX Division",
+    avatar:
+      "https://images.unsplash.com/photo-1677168916969-e5a4af982664?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    name: "Alexa Shu",
+    name: "Mawar Eva",
     role: "Front-end Developer",
-    avatar: "https://randomuser.me/api/portraits/women/11.jpg",
+    avatar:
+      "https://plus.unsplash.com/premium_photo-1679064458881-76904cf6d1aa?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ];
 
@@ -186,4 +189,9 @@ export const logos: Logos[] = [
     name: "TailGrids",
     src: "https://img.icons8.com/?size=96&id=Q7zerQ0gSSTU&format=png",
   },
+  {
+    name: "Kod",
+    src: "/favicon",
+  },
 ];
+

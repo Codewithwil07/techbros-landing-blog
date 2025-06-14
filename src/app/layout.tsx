@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "techbros.id | Joki Tugas Coding Cepat & Amanah No 1 di Indonesia",
   description: "Jasa Joki Tugas Coding Cepat & Amanah No 1 di Indonesia",
   icons: {
-    icon: '/favicon.png'
+    icon: '/logos.png'
   }
 };
 

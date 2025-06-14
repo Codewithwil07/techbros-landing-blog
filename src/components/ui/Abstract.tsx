@@ -62,3 +62,38 @@ export const WaveAbstract: React.FC<Components> = ({ ClassName = "" }) => {
     </div>
   );
 };
+
+export const FooterBackground: React.FC = () => {
+  return (
+    <svg
+      viewBox="0 0 1440 400"
+      className="absolute w-full h-full left-0 top-0 -z-10"
+      preserveAspectRatio="none"
+    >
+      <defs>
+        <linearGradient id="bgGradient" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#1e293b" />
+          <stop offset="100%" stopColor="#0f172a" />
+        </linearGradient>
+        <linearGradient id="shineGradient" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="rgba(255,255,255,0.05)" />
+          <stop offset="100%" stopColor="rgba(0,0,0,0)" />
+        </linearGradient>
+      </defs>
+
+      {/* background gelap */}
+      <rect width="1440" height="400" fill="url(#bgGradient)" />
+
+      {/* kilap miring putih */}
+      <polygon
+        points="0,0 400,0 1440,400 1040,400"
+        fill="url(#shineGradient)"
+      />
+      {/* kilap miring hitam tipis */}
+      <polygon
+        points="0,0 200,0 1240,400 1040,400"
+        fill="rgba(0,0,0,0.1)"
+      />
+    </svg>
+  );
+};

@@ -39,7 +39,8 @@ const HeroSection: React.FC = () => {
               href="https://wa.me/6287767978358?text=Halo%20saya%20tertarik%20dengan%20layanan%20Anda"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-green-500 text-white px-4 py-3 rounded-md hover:bg-green-600 transition"
+              className="inline-flex items-center gap-2 bg-green-500 text-white px-4 py-3 rounded-md hover:bg-green-600 transition w-[21rem] mx-auto md:w-fit"
+
             >
               <Icon.Wa className="w-5 h-5" />
               Pesan Sekarang via WhatsApp

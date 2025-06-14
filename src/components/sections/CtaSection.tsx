@@ -18,7 +18,7 @@ const CtaSection: React.FC = () => {
           pada techbros, solusi joki coding terpercaya dan profesional di
           Indonesia!
         </p>
-        <LinkButton className="relative cursor-pointer z-20 hover:border-white" variant="outline">
+        <LinkButton className="relative cursor-pointer z-20 border-white" variant="outlinedark">
           Hubungi via WhatsApp
         </LinkButton>
       </div>
