@@ -6,7 +6,7 @@ import { jasaLists } from "@/components/shared/data";
 
 export default function JasaPage() {
   return (
-    <main className="bg-bg min-h-screen">
+    <main className="bg-section-light min-h-screen">
       <div className="bg-accent -top-18 w-full flex items-end justify-center pb-20 h-72 relative">
         <h1 className="text-title text-white font-bold">#LayanaJokiCoding</h1>
       </div>

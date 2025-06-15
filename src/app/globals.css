@@ -4,13 +4,16 @@
   /* 🎨 PALETTE MONOCHROME */
   --color-primary: #000;             /* Hitam utama */
   --color-secondary: #666;           /* Abu-abu teks sekunder */
-  --color-bg: #fff;                  /* Putih background */
   --color-accent: #333;              /* Abu tua aksen */
   --color-error: #e11d48;            /* Merah error */
 
   /* 🌫 SECTION BACKGROUND */
   --color-section-light: #f9f9f9;    /* Background terang */
   --color-section-dark: #111;        /* Background gelap */
+
+  /* 🌫 MAIN BACKGROUND */
+  --color-main-light: #f9f9f9;    /* Background terang */
+  --color-main-dark: #111;        /* Background gelap */
 
   /* 💫 GRADIENT SECTION (MONOCHROME STYLE) */
   --color-gradient-hero: linear-gradient(to right, #000, #222, #000);
