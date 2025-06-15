@@ -9,10 +9,10 @@
   --color-error: #e11d48;            /* Merah error */
 
   /* 🌫 SECTION BACKGROUND */
-  --color-section-light: #f9f9f9;    /* Background terang */
+  --color-section-light: #f9f9;    /* Background terang */
   --color-section-dark: #111;        /* Background gelap */
 
-  --color-main-light: #f9f9f9;    /* Background terang */
+  --color-main-light: #f9f9;    /* Background terang */
   --color-main-dark: #111;        /* Background gelap */
 
   /* 💫 GRADIENT SECTION (MONOCHROME STYLE) */
@@ -28,7 +28,7 @@
 
   /* 📦 RADIUS + SPACING + SHADOW */
   --radius-button: 9999px;
-  --radius-card: 1rem;
+  --radius-card: 3px;
   --radius-section: 1.5rem;
   --shadow-card: 0 4px 12px rgba(0,0,0,0.1);
   --shadow-navbar: 0 2px 8px rgba(0,0,0,0.08);

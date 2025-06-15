@@ -11,7 +11,7 @@ const ServicesSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="layanan" className="py-20 px-4 sm:px-6 lg:px-8 bg-section">
+    <section id="layanan" className="py-20 px-4 sm:px-6 lg:px-8 bg-section-light">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
@@ -27,14 +27,14 @@ const ServicesSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-4 gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
 
             return (
               <div
                 key={index}
-                className={`group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-transparent transform hover:-translate-y-2 ${
+                className={`group rounded-2xl p-8${
                   isVisible ? "animate-fade-in" : ""
                 }`}
                 style={{ animationDelay: `${index * 200}ms` }}

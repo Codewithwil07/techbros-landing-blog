@@ -41,7 +41,7 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between py-4">
             {/* Logo */}
-            <Link href="/beranda">
+            <Link href="/">
               <Image
                 src="/logo.png"
                 width={150}
@@ -54,7 +54,6 @@ const Navbar = () => {
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
               {renderNavLinks()}
-              
             </div>
 
             {/* Mobile Menu Toggle */}
