@@ -24,7 +24,7 @@ const PartnersSection: React.FC = () => {
             width={100}
             height={100}
             placeholder="empty"
-            className={`opacity-70 hover:opacity-100 w-28 h-28  transition ${i === 0 ? 'md:w-32 md:h-32' : 'md:h-14 md:w-14'}`}
+            className={`opacity-70 hover:opacity-100 w-10 h-10 transition ${i === 0 ? 'md:w-32 md:h-32' : 'md:h-14 md:w-14'}`}
           />  
         ))}
       </div>
