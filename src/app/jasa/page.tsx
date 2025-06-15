@@ -2,11 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { jasaLists } from "@/components/shared/data";
 
-const generateSlug = (title: string) =>
-  title
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
+
 
 export default function JasaPage() {
   return (
@@ -20,7 +16,7 @@ export default function JasaPage() {
             {jasaLists.map((jasa) => (
               <Link
                 key={jasa.id}
-                href={`/jasa/${generateSlug(jasa.title)}`}
+                href={`/jasa`}
                 className="cursor-pointer overflow-hidden transition block"
               >
                 <div className="relative w-full h-48 sm:h-56 md:h-64">
