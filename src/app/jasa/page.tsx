@@ -12,32 +12,27 @@ export default function JasaPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
             {jasaLists.map((jasa) => (
-              <Link
-                key={jasa.id}
-                href={`/jasa`}
-                className="cursor-pointer overflow-hidden transition block"
-              >
+              <div key={jasa.id}>
                 <div className="relative sm:h-56 md:h-64 rounded-md overflow-hidden">
                   <Image
                     src={jasa.image}
                     alt={jasa.title}
                     fill
-                    className="object-cover transition duration-300 ease-in-out hover:scale-105 hover:rotate-1 will-change-transform"
+                    className="cursor-pointer object-cover transition duration-300 ease-in-out hover:scale-105 hover:rotate-1 will-change-transform"
                   />
                 </div>
-
                 <div className="pt-3 pb-4 px-0 flex flex-col gap-y-2">
-                  <h2 className="text-body font-semibold text-accent mb-1">
+                  <h2 className="text-body font-semibold text-accent mb-1 cursor-pointer">
                     {jasa.title}
                   </h2>
                   <p className="text-small text-white bg-accent inline-block px-2 py-0.5 rounded mb-1 w-fit">
                     {jasa.date}
                   </p>
-                  <p className="text-body font-extralight text-secondary">
+                  <p className="text-body font-extralight text-secondary cursor-pointer">
                     {jasa.description}
                   </p>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </div>
