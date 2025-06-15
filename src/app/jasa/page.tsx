@@ -2,8 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { jasaLists } from "@/components/shared/data";
 
-
-
 export default function JasaPage() {
   return (
     <main className="bg-section-light min-h-screen">
@@ -19,22 +17,25 @@ export default function JasaPage() {
                 href={`/jasa`}
                 className="cursor-pointer overflow-hidden transition block"
               >
-                <div className="relative w-full h-48 sm:h-56 md:h-64">
+                <div className="relative sm:h-56 md:h-64 rounded-md overflow-hidden">
                   <Image
                     src={jasa.image}
                     alt={jasa.title}
                     fill
-                    className="object-cover transition duration-300 ease-in-out hover:scale-105 hover:rotate-1"
+                    className="object-cover transition duration-300 ease-in-out hover:scale-105 hover:rotate-1 will-change-transform"
                   />
                 </div>
+
                 <div className="pt-3 pb-4 px-0 flex flex-col gap-y-2">
-                  <h2 className="text-xl font-bold text-accent mb-1">
+                  <h2 className="text-body font-semibold text-accent mb-1">
                     {jasa.title}
                   </h2>
                   <p className="text-small text-white bg-accent inline-block px-2 py-0.5 rounded mb-1 w-fit">
                     {jasa.date}
                   </p>
-                  <p className="text-body text-secondary">{jasa.description}</p>
+                  <p className="text-body font-extralight text-secondary">
+                    {jasa.description}
+                  </p>
                 </div>
               </Link>
             ))}
