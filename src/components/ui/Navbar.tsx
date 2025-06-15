@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const navLinks = ["beranda", "tentang", "harga", "kontak", "jasa"];
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hasMounted, setHasMounted] = useState(false);
 
@@ -54,14 +54,7 @@ const Navbar: React.FC = () => {
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
               {renderNavLinks()}
-              <a
-                href="https://wa.me/6287767978358?text=Halo%20saya%20tertarik%20dengan%20layanan%20Anda"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-primary text-bg px-6 py-2 rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300"
-              >
-                Hubungi Kami
-              </a>
+              
             </div>
 
             {/* Mobile Menu Toggle */}
@@ -69,7 +62,11 @@ const Navbar: React.FC = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden p-2 rounded-lg hover:bg-section-light transition-colors"
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
@@ -83,14 +80,6 @@ const Navbar: React.FC = () => {
       >
         <div className="flex flex-col items-center px-4 py-4 space-y-3">
           {renderNavLinks(true)}
-          <a
-            href="https://wa.me/6287767978358?text=Halo%20saya%20tertarik%20dengan%20layanan%20Anda"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-primary text-bg px-4 py-2 rounded-lg text-center w-96"
-          >
-            Hubungi Kami
-          </a>
         </div>
       </div>
     </nav>
