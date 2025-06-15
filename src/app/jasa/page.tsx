@@ -5,7 +5,7 @@ export default function JasaPage() {
   return (
     <main className="bg-section-light min-h-screen">
       <div className="bg-accent -top-18 w-full flex items-end justify-center pb-20 h-72 relative">
-        <h1 className="text-title text-white font-bold">#LayananJokiCodin</h1>
+        <h1 className="text-title text-white font-bold">#LayananJokiCoding</h1>
       </div>
       <section className="bg-section-light py-section">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,8 +16,9 @@ export default function JasaPage() {
                   <Image
                     src={jasa.image}
                     alt={jasa.title}
-                    fill
-                    className="cursor-pointer object-cover transition duration-300 ease-in-out hover:scale-105 hover:rotate-1 will-change-transform"
+                    height={100}
+                    width={100}
+                    className="cursor-pointer w-full object-cover transition duration-300 ease-in-out hover:scale-105 hover:rotate-1 will-change-transform"
                   />
                 </div>
                 <div className="pt-3 pb-4 px-0 flex flex-col gap-y-2">
