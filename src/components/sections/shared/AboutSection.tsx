@@ -7,7 +7,7 @@ import { Components } from "../../shared/types";
 
 const AboutSection: React.FC<Components> = ({ ClassName = "" }) => {
   return (
-    <section className={`py-20 bg-section px-4 sm:px-6 lg:px-8 ${ClassName}`}>
+    <section className={`py-20 bg-section-light px-4 sm:px-6 lg:px-8 ${ClassName}`}>
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* LEFT CONTENT */}

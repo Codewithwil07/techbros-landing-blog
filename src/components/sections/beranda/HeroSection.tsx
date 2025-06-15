@@ -13,8 +13,8 @@ const HeroSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="beranda" className="section bg-section-light">
-      <div className="max-w-7xl mx-auto text-center mb-16 mt-14">
+    <section id="beranda" className="section bg-gradient-cta">
+      <div className="max-w-7xl mx-auto text-center mb-16 py-14 bg-section-light">
         <div
           className={`transition-all duration-1000 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"

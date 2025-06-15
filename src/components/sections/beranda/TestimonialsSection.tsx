@@ -20,7 +20,7 @@ const TestimonialsSection: React.FC = () => {
   return (
     <section
       id="testimonial"
-      className="py-20 bg-gradient-to-r from-gray-50 to-gray-200 px-4 sm:px-6 lg:px-8"
+      className="py-20 bg-section-light px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">

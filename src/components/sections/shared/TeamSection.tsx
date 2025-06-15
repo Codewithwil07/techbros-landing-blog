@@ -15,7 +15,7 @@ const TeamSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-gray-50 to-gray-200">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-section-light">
       <div className="max-w-7xl mx-auto text-center mb-12">
         <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
           Kenali Tim Ahli{" "}

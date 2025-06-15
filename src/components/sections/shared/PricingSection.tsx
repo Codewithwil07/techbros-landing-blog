@@ -8,7 +8,7 @@ const PricingSection: React.FC = () => {
   return (
     <section
       id="paket"
-      className="py-20 px-4 sm:px-6 lg:px-8"
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-section-light"
     >
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
