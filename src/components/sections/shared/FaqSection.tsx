@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { faqs } from "../shared/data";
+import { faqs } from "../../shared/data";
 import { ChevronDown } from "lucide-react";
 
 const FaqSection: React.FC = () => {

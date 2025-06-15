@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { team } from "../shared/data";
+import { team } from "../../shared/data";
 import Image from "next/image";
-import Icon from "../ui/SocialIcons";
+import Icon from "../../ui/SocialIcons";
 import Link from "next/link";
 
 const TeamSection: React.FC = () => {

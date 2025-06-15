@@ -1,14 +1,14 @@
 "use client";
 
 import React from "react";
-import { packages } from "../shared/data";
-import PricingCard from "../ui/PricingCard";
+import { packages } from "../../shared/data";
+import PricingCard from "../../ui/PricingCard";
 
 const PricingSection: React.FC = () => {
   return (
     <section
       id="paket"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200"
+      className="py-20 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-7xl mx-auto">
         {/* Heading */}

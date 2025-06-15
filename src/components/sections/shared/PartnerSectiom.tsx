@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { logos } from "../shared/data";
+import { logos } from "../../shared/data";
 import Image from "next/image";
 
 const PartnersSection: React.FC = () => {

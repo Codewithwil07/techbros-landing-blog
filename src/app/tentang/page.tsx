@@ -1,6 +1,6 @@
-import AboutSection from "@/components/sections/AboutSection";
-import PartnersSection from "@/components/sections/PartnerSectiom";
-import TeamSection from "@/components/sections/TeamSection";
+import AboutSection from "@/components/sections/shared/AboutSection";
+import PartnersSection from "@/components/sections/shared/PartnerSectiom";
+import TeamSection from "@/components/sections/shared/TeamSection";
 import React from "react";
 
 const page = () => {

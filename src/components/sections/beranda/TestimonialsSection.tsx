@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { testimonials } from "../shared/data";
+import { testimonials } from "../../shared/data";
 import { Star } from "lucide-react";
 import Image from "next/image";
 

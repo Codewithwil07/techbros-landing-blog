@@ -1,5 +1,5 @@
-import FaqSection from "@/components/sections/FaqSection";
-import PricingSection from "@/components/sections/PricingSection";
+import FaqSection from "@/components/sections/shared/FaqSection";
+import PricingSection from "@/components/sections/shared/PricingSection";
 import React from "react";
 
 const page = () => {
@@ -9,7 +9,7 @@ const page = () => {
         <h1 className="text-title text-white font-bold">#Harga</h1>
       </div>
       <PricingSection />
-      <FaqSection/>
+      <FaqSection />
     </>
   );
 };

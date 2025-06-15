@@ -1,4 +1,4 @@
-import CtaSection from "@/components/sections/CtaSection";
+import CtaSection from "@/components/sections/shared/CtaSection";
 import React from "react";
 
 const page = () => {

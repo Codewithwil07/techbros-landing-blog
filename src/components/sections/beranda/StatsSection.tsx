@@ -1,7 +1,7 @@
     "use client";
 
     import React, { useEffect, useState } from "react";
-    import { stats } from "../shared/data";
+    import { stats } from "../../shared/data";
 
     const StatsSection: React.FC = () => {
       const [isVisible, setIsVisible] = useState(false);

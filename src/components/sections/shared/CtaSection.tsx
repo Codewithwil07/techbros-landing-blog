@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import LinkButton from "../ui/LinkButton";
-import { WaveAbstract } from "../ui/Abstract";
+import LinkButton from "../../ui/LinkButton";
+import { WaveAbstract } from "../../ui/Abstract";
 
 const CtaSection: React.FC = () => {
   return (

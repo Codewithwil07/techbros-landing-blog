@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { services } from "../shared/data";
+import { services } from "../../shared/data";
 
 const ServicesSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);

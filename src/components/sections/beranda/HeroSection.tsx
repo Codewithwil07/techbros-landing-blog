@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { DotAbstrcat } from "../ui/Abstract";
-import Icon from "../ui/SocialIcons";
-import LinkButton from "../ui/LinkButton";
+import { DotAbstrcat } from "../../ui/Abstract";
+import Icon from "../../ui/SocialIcons";
+import LinkButton from "../../ui/LinkButton";
 
 const HeroSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);

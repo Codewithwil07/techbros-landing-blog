@@ -1,13 +1,13 @@
-import AboutSection from "@/components/sections/AboutSection";
-import CtaSection from "@/components/sections/CtaSection";
-import FaqSection from "@/components/sections/FaqSection";
-import HeroSection from "@/components/sections/HeroSection";
-import PartnersSection from "@/components/sections/PartnerSectiom";
-import PricingSection from "@/components/sections/PricingSection";
-import ServicesSection from "@/components/sections/ServicesSection";
-import StatsSection from "@/components/sections/StatsSection";
-import TeamSection from "@/components/sections/TeamSection";
-import TestimonialsSection from "@/components/sections/TestimonialsSection";
+import AboutSection from "@/components/sections/shared/AboutSection";
+import CtaSection from "@/components/sections/shared/CtaSection";
+import FaqSection from "@/components/sections/shared/FaqSection";
+import HeroSection from "@/components/sections/beranda/HeroSection";
+import PartnersSection from "@/components/sections/shared/PartnerSectiom";
+import PricingSection from "@/components/sections/shared/PricingSection";
+import ServicesSection from "@/components/sections/beranda/ServicesSection";
+import StatsSection from "@/components/sections/beranda/StatsSection";
+import TeamSection from "@/components/sections/shared/TeamSection";
+import TestimonialsSection from "@/components/sections/beranda/TestimonialsSection";
 
 export default function Beranda() {
   return (
@@ -22,6 +22,6 @@ export default function Beranda() {
       <FaqSection />
       <TeamSection />
       <PartnersSection />
-    </>
+  </>
   );
 }

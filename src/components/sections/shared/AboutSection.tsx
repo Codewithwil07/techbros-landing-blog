@@ -2,10 +2,10 @@
 
 import React from "react";
 import { Code, Database, Smartphone, Globe } from "lucide-react";
-import LinkButton from "../ui/LinkButton";
-import { Components } from "../shared/types";
+import LinkButton from "../../ui/LinkButton";
+import { Components } from "../../shared/types";
 
-const AboutSection: React.FC<Components> = ({ClassName = ''}) => {
+const AboutSection: React.FC<Components> = ({ ClassName = "" }) => {
   return (
     <section className={`py-20 bg-section px-4 sm:px-6 lg:px-8 ${ClassName}`}>
       <div className="max-w-7xl mx-auto">

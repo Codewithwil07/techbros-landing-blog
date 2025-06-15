@@ -50,6 +50,8 @@ export type Components = {
 };
 
 export type ArticleItem = {
+  id: number,
+  slug: string,
   image: StaticImageData;
   title: string;
   date?: string;
