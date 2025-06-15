@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
             </div>
 
             <div className="hidden md:flex items-center space-x-8">
-              {["beranda", "tentang", "harga", "kontak"].map((item) => {
+              {["beranda", "tentang", "harga", "kontak", "jasa"].map((item) => {
                 const path = item === "beranda" ? "/" : `/${item}`;
                 return (
                   <Link
@@ -73,7 +73,7 @@ const Navbar: React.FC = () => {
         }`}
       >
         <div className="flex flex-col items-center px-4 py-4 space-y-3">
-          {["beranda", "tentang", "harga", "kontak"].map((item) => {
+          {["beranda", "tentang", "harga", "kontak", "jasa"].map((item) => {
             const path = item === "beranda" ? "/" : `/${item}`;
             return (
               <Link

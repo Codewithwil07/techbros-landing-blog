@@ -17,7 +17,10 @@ import type {
   Service,
   Team,
   Logos,
+  ArticleItem,
 } from "./types";
+
+import cover from '@/assets/jasaweb.jpg'
 
 export const stats: Stat[] = [
   { number: "1000+", label: "Tugas Selesai", icon: CheckCircle },
@@ -209,5 +212,26 @@ export const logos: Logos[] = [
   {
     name: "ZoneEnjoy",
     src: "https://img.icons8.com/?size=96&id=Q7zerQ0gSSTU&format=png",
+  },
+];
+
+export const jasaItems: ArticleItem[] = [
+  {
+    title: "Jasa Joki Tugas Coding",
+    date: '20 juli 2004',
+    description: "Pengerjaan tugas coding berkualitas, tepat waktu, dan aman.",
+    image: cover,
+  },
+  {
+    title: "Pembuatan Website / Aplikasi",
+    date: '20 juli 2004',
+    description: "Bangun website atau aplikasi sesuai kebutuhan kamu.",
+    image: cover,
+  },
+  {
+    title: "Revisi Skripsi Coding",
+    date: '20 juli 2004',
+    description: "Bantuan revisi skripsi coding agar cepat acc dosen.",
+    image: cover,
   },
 ];

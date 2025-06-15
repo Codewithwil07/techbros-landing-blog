@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export type Stat = {
   number: string;
   label: string;
@@ -45,4 +47,11 @@ export type Logos = {
 
 export type Components = {
   ClassName?: string;
+};
+
+export type ArticleItem = {
+  image: StaticImageData;
+  title: string;
+  date?: string;
+  description: string;
 };
