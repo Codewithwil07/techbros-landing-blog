@@ -5,7 +5,7 @@ export default function JasaPage() {
   return (
     <main className="bg-section-light min-h-screen">
       <div className="bg-accent -top-18 w-full flex items-end justify-center pb-20 h-72 relative">
-        <h1 className="text-title text-white font-bold">#LayananJokiCoding</h1>
+        <h1 className="text-title text-white font-bold">#LayananJokiCodin</h1>
       </div>
       <section className="bg-section-light py-section">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
