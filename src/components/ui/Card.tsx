@@ -17,12 +17,13 @@ const ContentCard = ({ items, basePath }: CardListProps) => {
   return (
     <div key={items.id}>
       <Link href={`/${basePath}/${items.slug}`}>
-        <div className="relative sm:h-56 md:h-64 rounded-card overflow-hidden">
+        <div className="relative h-56 md:h-64 rounded-card overflow-hidden">
           <Image
             src={imgSrc}
             onError={() => setImgSrc("/globe.svg")}
             alt={items.description || "Gambar konten"}
             fill
+            priority
             className="cursor-pointer object-cover transition duration-300 ease-in-out hover:scale-105 hover:rotate-1 will-change-transform"
           />
         </div>
