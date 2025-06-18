@@ -3,9 +3,11 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")     // untuk runtime aplikasi
+  directUrl = env("DIRECT_URL")      // untuk prisma migrate / introspect / studio
 }
+
 
 model User {
   id        String    @id @default(cuid())
