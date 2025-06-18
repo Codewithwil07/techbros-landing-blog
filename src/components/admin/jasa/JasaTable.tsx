@@ -6,7 +6,7 @@ import {
   flexRender,
   ColumnDef,
 } from "@tanstack/react-table";
-import { Button } from "@/components/ui/button";
+import  Button from "@/components/ui/custom/Button";
 import Link from "next/link";
 import {
   Dialog,
