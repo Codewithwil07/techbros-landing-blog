@@ -20,7 +20,6 @@ import type {
   ArticleItem,
 } from "./types";
 
-import cover from "@/assets/jasaweb.jpg";
 
 export const stats: Stat[] = [
   { number: "1000+", label: "Tugas Selesai", icon: CheckCircle },
@@ -216,60 +215,60 @@ export const logos: Logos[] = [
 ];
 
 
-export const jasaLists: ArticleItem[] = [
-  {
-    id: 5,
-    slug: "integrasi-payment-gateway",
-    title: "Integrasi Payment Gateway",
-    date: "4 Desember 2024",
-    description:
-      "Kami bantu integrasikan payment gateway populer (Midtrans, Xendit, dll) ke website atau aplikasi kamu. Transaksi aman, proses cepat, dan mendukung berbagai metode pembayaran.",
-    image: cover,
-  },
-  {
-    id: 4,
-    slug: "pembuatan-api-backend",
-    title: "Pembuatan API Backend",
-    date: "2 Desember 2024",
-    description:
-      "Jasa pembuatan REST API atau GraphQL untuk kebutuhan aplikasi kamu. Dukungan berbagai teknologi seperti Node.js, Express, Laravel, dan lainnya. Clean code dan dokumentasi lengkap.",
-    image: cover,
-  },
-  {
-    id: 3,
-    slug: "revisi-skripsi-coding",
-    title: "Revisi Skripsi Coding",
-    date: "20 September 2024",
-    description:
-      "Bantuan revisi skripsi khusus untuk bagian coding dan implementasi sistem. Tidak termasuk revisi laporan atau dokumen bab 1-5, fokus pada perbaikan kode dan fungsionalitas.",
-    image: cover,
-  },
-  {
-    id: 2,
-    slug: "pembuatan-website-aplikasi",
-    title: "Pembuatan Website / Aplikasi",
-    date: "10 Agustus 2024",
-    description:
-      "Layanan pembuatan website dan aplikasi berbasis web yang responsif, modern, dan SEO friendly. Cocok untuk UMKM, startup, hingga perusahaan besar. Custom fitur sesuai kebutuhan kamu.",
-    image: cover,
-  },
-  {
-    id: 1,
-    slug: "jasa-joki-tugas-coding",
-    title: "Jasa Joki Tugas Coding",
-    date: "20 Juli 2024",
-    description:
-      "Kami menyediakan jasa joki tugas coding untuk berbagai bahasa pemrograman seperti Java, Python, C++, dan lainnya. Proyek dikerjakan oleh profesional dengan jaminan kualitas, tepat waktu, dan aman dari plagiarisme.",
-    image: cover,
-  },
-  {
-    id: 6,
-    slug: "optimasi-website",
-    title: "Optimasi Website",
-    date: "5 Februari 2024",
-    description:
-      "Layanan optimasi kecepatan website agar lebih cepat diakses dan mendapatkan skor tinggi di Google PageSpeed. Termasuk kompres gambar, minify CSS/JS, dan setting cache.",
-    image: cover,
-  },
-];
+// export const jasaLists: ArticleItem[] = [
+//   {
+//     id: 5,
+//     slug: "integrasi-payment-gateway",
+//     title: "Integrasi Payment Gateway",
+//     date: "4 Desember 2024",
+//     description:
+//       "Kami bantu integrasikan payment gateway populer (Midtrans, Xendit, dll) ke website atau aplikasi kamu. Transaksi aman, proses cepat, dan mendukung berbagai metode pembayaran.",
+//     image: cover,
+//   },
+//   {
+//     id: 4,
+//     slug: "pembuatan-api-backend",
+//     title: "Pembuatan API Backend",
+//     date: "2 Desember 2024",
+//     description:
+//       "Jasa pembuatan REST API atau GraphQL untuk kebutuhan aplikasi kamu. Dukungan berbagai teknologi seperti Node.js, Express, Laravel, dan lainnya. Clean code dan dokumentasi lengkap.",
+//     image: cover,
+//   },
+//   {
+//     id: 3,
+//     slug: "revisi-skripsi-coding",
+//     title: "Revisi Skripsi Coding",
+//     date: "20 September 2024",
+//     description:
+//       "Bantuan revisi skripsi khusus untuk bagian coding dan implementasi sistem. Tidak termasuk revisi laporan atau dokumen bab 1-5, fokus pada perbaikan kode dan fungsionalitas.",
+//     image: cover,
+//   },
+//   {
+//     id: 2,
+//     slug: "pembuatan-website-aplikasi",
+//     title: "Pembuatan Website / Aplikasi",
+//     date: "10 Agustus 2024",
+//     description:
+//       "Layanan pembuatan website dan aplikasi berbasis web yang responsif, modern, dan SEO friendly. Cocok untuk UMKM, startup, hingga perusahaan besar. Custom fitur sesuai kebutuhan kamu.",
+//     image: cover,
+//   },
+//   {
+//     id: 1,
+//     slug: "jasa-joki-tugas-coding",
+//     title: "Jasa Joki Tugas Coding",
+//     date: "20 Juli 2024",
+//     description:
+//       "Kami menyediakan jasa joki tugas coding untuk berbagai bahasa pemrograman seperti Java, Python, C++, dan lainnya. Proyek dikerjakan oleh profesional dengan jaminan kualitas, tepat waktu, dan aman dari plagiarisme.",
+//     image: cover,
+//   },
+//   {
+//     id: 6,
+//     slug: "optimasi-website",
+//     title: "Optimasi Website",
+//     date: "5 Februari 2024",
+//     description:
+//       "Layanan optimasi kecepatan website agar lebih cepat diakses dan mendapatkan skor tinggi di Google PageSpeed. Termasuk kompres gambar, minify CSS/JS, dan setting cache.",
+//     image: cover,
+//   },
+// ];
 

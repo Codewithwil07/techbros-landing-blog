@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-const navLinks = ["beranda", "tentang", "harga", "kontak", "jasa"];
+const navLinks = ["beranda", "tentang", "harga", "kontak", "jasa", "blog"];
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -52,7 +52,7 @@ const Navbar = () => {
             </Link>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-8 text-black">
               {renderNavLinks()}
             </div>
 
@@ -77,7 +77,7 @@ const Navbar = () => {
           isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="flex flex-col items-center px-4 py-4 space-y-3">
+        <div className="flex flex-col items-center px-4 py-4 space-y-3 text-black">
           {renderNavLinks(true)}
         </div>
       </div>

@@ -49,11 +49,18 @@ export type Components = {
   ClassName?: string;
 };
 
-export type ArticleItem = {
-  id: number,
-  slug: string,
-  image: StaticImageData;
+export type contentItem = {
+  id: number;
+  slug?: string;
+  image: string;
   title: string;
-  date?: string;
+  date?: string | Date | null;
+  description: string;
+};
+
+export type Blog = {
+  id: number;
+  title: string;
+  slug: string;
   description: string;
 };

@@ -52,6 +52,10 @@ const HeroSection: React.FC = () => {
         }`}
       >
         <DotAbstrcat ClassName="-top-8 md:-top-14 md:left-40 -z-10" />
+<<<<<<< HEAD
+=======
+        {/* <DotAbstrcat ClassName="top-60 left-52 md:top-40 md:left-[58rem] -z-10" /> */}
+>>>>>>> 27001e7 (feat: add API route blog)
 
         <div className="bg-gray-900 rounded-t-2xl w-2/3 mx-auto p-8 font-mono text-green-400 shadow-inner">
           <div className="flex items-center gap-2 mb-4">
