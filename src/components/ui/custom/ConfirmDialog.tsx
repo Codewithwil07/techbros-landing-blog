@@ -1,7 +1,7 @@
 "use client";
 
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
+import  Button from "@/components/ui/custom/Button";
 
 interface BlogDialogProps {
   open: boolean;
