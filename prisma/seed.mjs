@@ -2,67 +2,86 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
-  // Clear existing data (optional untuk development)
+  console.log("📝 Seeding database...");
+
+  // Bersihin dulu
   await prisma.blogTag.deleteMany();
   await prisma.tag.deleteMany();
   await prisma.blog.deleteMany();
+  await prisma.jasa.deleteMany();
+  await prisma.account.deleteMany();
+  await prisma.session.deleteMany();
+  await prisma.user.deleteMany();
 
-  // Create tags
-  const frontendTag = await prisma.tag.create({ data: { name: "frontend" } });
-  const backendTag = await prisma.tag.create({ data: { name: "backend" } });
-  const fullstackTag = await prisma.tag.create({ data: { name: "fullstack" } });
+  // Insert User
+  const user = await prisma.user.create({
+    data: {
+      username: "wang",
+      password: "wang", // Sebaiknya hashed, tapi ini contoh real case
+    },
+  });
 
-  // Create blogs + assign tags
+  // Insert Jasa
+  await prisma.jasa.create({
+    data: {
+      title: "Jasa Joki Coding Fullstack",
+      slug: "jasa-joki-coding-fullstack",
+      description: "Kami menyediakan jasa joki coding fullstack untuk berbagai keperluan tugas kuliah.",
+      image: "https://via.placeholder.com/600x400.png?text=Jasa+Joki+Coding",
+      content: "Konten lengkap tentang jasa joki coding fullstack.",
+    },
+  });
+
+  await prisma.jasa.create({
+    data: {
+      title: "Jasa Joki Skripsi Sistem Informasi",
+      slug: "jasa-joki-skripsi-sistem-informasi",
+      description: "Bantu skripsi Anda selesai tepat waktu dengan jasa joki skripsi sistem informasi.",
+      image: "https://via.placeholder.com/600x400.png?text=Jasa+Joki+Skripsi",
+      content: "Konten lengkap tentang jasa joki skripsi.",
+    },
+  });
+
+  // Insert Blog + Tag
+  const tag1 = await prisma.tag.create({
+    data: { name: "Coding" }
+  });
+
+  const tag2 = await prisma.tag.create({
+    data: { name: "Skripsi" }
+  });
+
   const blog1 = await prisma.blog.create({
     data: {
-      title: "Panduan Next.js untuk Pemula",
-      slug: "panduan-nextjs-pemula",
-      description: "Belajar Next.js dari nol untuk membangun website modern.",
-      content: "Konten panjang dan mendetail tentang Next.js...",
-      image: "https://example.com/nextjs.jpg",
+      title: "Tips Lulus Skripsi Tepat Waktu",
+      slug: "tips-lulus-skripsi",
+      description: "Artikel berisi tips menyelesaikan skripsi tepat waktu.",
+      image: "https://via.placeholder.com/600x400.png?text=Tips+Skripsi",
+      content: "Konten lengkap tips lulus skripsi.",
       tags: {
         create: [
-          { tag: { connect: { id: frontendTag.id } } },
-          { tag: { connect: { id: fullstackTag.id } } },
+          { tag: { connect: { id: tag2.id } } }
         ]
       }
-    }
+    },
   });
 
   const blog2 = await prisma.blog.create({
     data: {
-      title: "Backend API dengan Express.js",
-      slug: "backend-api-expressjs",
-      description: "Membangun REST API menggunakan Express.js dan Node.js.",
-      content: "Konten lengkap membahas routing, middleware, dan database...",
-      image: "https://example.com/express.jpg",
+      title: "Belajar Fullstack Web Development",
+      slug: "belajar-fullstack",
+      description: "Panduan belajar fullstack web development.",
+      image: "https://via.placeholder.com/600x400.png?text=Fullstack",
+      content: "Konten lengkap belajar fullstack.",
       tags: {
         create: [
-          { tag: { connect: { id: backendTag.id } } },
-          { tag: { connect: { id: fullstackTag.id } } },
+          { tag: { connect: { id: tag1.id } } }
         ]
       }
-    }
+    },
   });
 
-  const blog3 = await prisma.blog.create({
-    data: {
-      title: "Integrasi Frontend dan Backend",
-      slug: "integrasi-frontend-backend",
-      description: "Cara menghubungkan frontend React dengan backend Express.",
-      content: "Penjelasan detail integrasi API dan penanganan CORS...",
-      image: "https://example.com/integrasi.jpg",
-      tags: {
-        create: [
-          { tag: { connect: { id: frontendTag.id } } },
-          { tag: { connect: { id: backendTag.id } } },
-          { tag: { connect: { id: fullstackTag.id } } },
-        ]
-      }
-    }
-  });
-
-  console.log("✅ Seeder berhasil dijalankan!");
+  console.log("✅ Seeding selesai!");
 }
 
 main()
