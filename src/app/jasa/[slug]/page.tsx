@@ -3,7 +3,8 @@ import Image from "next/image";
 import { CalendarDays, Eye } from "lucide-react";
 import JasaCard from "@/components/ui/Card";
 import { formatDate } from "@/utils/date";
-import Link  from "next/link";
+import Link from "next/link";
+import BlockRenderer from "@/components/ui/custom/BlockRerender";
 
 export default async function DetailJasaPage({
   params,
@@ -39,6 +40,7 @@ export default async function DetailJasaPage({
   return (
     <section className="bg-section-light py-12 relative">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 px-4">
+        {/* Konten Utama */}
         <div className="lg:col-span-2">
           <h1 className="text-4xl sm:text-5xl font-bold text-accent leading-tight mb-4">
             {jasa.title}
@@ -56,7 +58,7 @@ export default async function DetailJasaPage({
               <span>By Author</span>
             </div>
             <div className="flex items-center gap-1">
-              <CalendarDays />
+              <CalendarDays className="w-4 h-4" />
               <span>{formatDate(jasa.date)}</span>
             </div>
             <div className="flex items-center gap-1">
@@ -67,7 +69,7 @@ export default async function DetailJasaPage({
 
           <div className="relative w-full h-64 sm:h-80 md:h-[28rem] rounded-card overflow-hidden mb-8 shadow-md">
             <Image
-              src={jasa.image || "teamhead.jpeg"}
+              src={jasa.cover || "/teamhead.jpeg"}
               alt={jasa.title}
               fill
               className="object-cover"
@@ -77,21 +79,9 @@ export default async function DetailJasaPage({
           <article className="prose prose-neutral prose-lg max-w-none">
             <p>{jasa.content}</p>
           </article>
-
-          {jasa.tag && (
-            <div className="flex flex-wrap gap-2 mt-4">
-              {jasa.tag.map((tag) => (
-                <span
-                  key={tag.trim()}
-                  className="bg-accent/10 text-accent text-xs font-medium px-2 py-1 rounded-full"
-                >
-                  {tag.trim()}
-                </span>
-              ))}
-            </div>
-          )}
         </div>
 
+        {/* Sidebar */}
         <aside className="space-y-8">
           <div className="p-4 border rounded-card shadow-sm">
             <h2 className="font-semibold text-accent mb-2">Langganan Berita</h2>
@@ -113,19 +103,16 @@ export default async function DetailJasaPage({
             <ul className="space-y-3">
               {jasaSering.map((item) => (
                 <li key={item.id} className="flex items-center gap-2">
-                  {/* Link hanya di image */}
                   <Link href={`/jasa/${item.slug}`}>
-                    <div className="relative w-12 h-8 overflow-hidden cursor-pointer">
+                    <div className="relative w-12 h-8 overflow-hidden cursor-pointer rounded">
                       <Image
-                        src={item.image || "teamhead.jpeg"}
+                        src={item.cover || "/teamhead.jpeg"}
                         alt={item.title}
                         fill
                         className="object-cover"
                       />
                     </div>
                   </Link>
-
-                  {/* Link hanya di title */}
                   <Link href={`/jasa/${item.slug}`}>
                     <span className="text-sm text-secondary hover:underline cursor-pointer">
                       {item.title}
@@ -142,14 +129,17 @@ export default async function DetailJasaPage({
         </aside>
       </div>
 
+      {/* Jasa Lainnya */}
       <div className="mt-12 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] px-4">
-        <h2 className="text-xl font-semibold mb-4">
-          Jasa lainnya yang mungkin kamu butuhkan
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {jasaLainnya.map((items) => (
-            <JasaCard items={items} key={items.id} />
-          ))}
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-xl font-semibold mb-4">
+            Jasa lainnya yang mungkin kamu butuhkan
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {jasaLainnya.map((items) => (
+              <JasaCard items={items} key={items.id} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

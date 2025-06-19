@@ -14,38 +14,49 @@ export async function PUT(
 
     const data = await req.json();
 
+    // Cek slug unik kecuali dirinya sendiri
+    const existing = await prisma.blog.findFirst({
+      where: {
+        slug: data.slug,
+        NOT: { id },
+      },
+    });
+
+    if (existing) {
+      return NextResponse.json(
+        { message: "Slug sudah dipakai blog lain" },
+        { status: 400 }
+      );
+    }
+
     const updated = await prisma.blog.update({
       where: { id },
       data: {
         title: data.title,
         slug: data.slug,
         description: data.description,
-        content: data.content,
-        image: data.image,
-        date: data.date,
-        // Update relasi tag
+        cover: data.cover,
+        content: data.content || null,
         tags: {
-          deleteMany: {}, // Hapus semua relasi tag lama
-          create: data.tag.map((tagId: number) => ({
+          deleteMany: {}, // hapus semua relasi tag lama
+          create: (data.tag || []).map((tagId: number) => ({
             tag: { connect: { id: tagId } },
           })),
         },
       },
       include: {
-        tags: {
-          include: { tag: true },
-        },
+        tags: { include: { tag: true } },
       },
     });
 
     return NextResponse.json(updated);
   } catch (error) {
-    console.error("Gagal update blog:", error);
+    console.error("❌ Gagal update blog:", error);
     return NextResponse.json({ message: "Gagal update blog" }, { status: 500 });
   }
 }
 
-// GET Blog
+// GET Blog by ID
 export async function GET(_: Request, { params }: { params: { id: string } }) {
   try {
     const id = Number(params.id);
@@ -56,9 +67,7 @@ export async function GET(_: Request, { params }: { params: { id: string } }) {
     const blog = await prisma.blog.findUnique({
       where: { id },
       include: {
-        tags: {
-          include: { tag: true },
-        },
+        tags: { include: { tag: true } },
       },
     });
 
@@ -71,7 +80,7 @@ export async function GET(_: Request, { params }: { params: { id: string } }) {
 
     return NextResponse.json(blog);
   } catch (error) {
-    console.error("Error ambil blog:", error);
+    console.error("❌ Error ambil blog:", error);
     return NextResponse.json({ message: "Terjadi kesalahan" }, { status: 500 });
   }
 }
@@ -91,9 +100,9 @@ export async function DELETE(
       where: { id },
     });
 
-    return NextResponse.json({ message: "Deleted" });
+    return NextResponse.json({ message: "Berhasil dihapus" });
   } catch (error) {
-    console.error("Gagal delete blog:", error);
+    console.error("❌ Gagal delete blog:", error);
     return NextResponse.json({ message: "Gagal delete" }, { status: 500 });
   }
 }

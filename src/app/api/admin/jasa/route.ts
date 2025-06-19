@@ -1,61 +1,64 @@
+import { prisma } from "@/lib/prisma"; // pastikan ada prisma.ts di lib
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma"; // prisma client
+
+export async function POST(req: Request) {
+  try {
+    const body = await req.json();
+    const jasa = await prisma.jasa.create({
+      data: {
+        title: body.title,
+        slug: body.slug,
+        description: body.description,
+        cover: body.cover,
+        content: body.content,
+        date: new Date(),
+      },
+    });
+    return NextResponse.json(jasa);
+  } catch (err) {
+    console.error("POST error", err);
+    return NextResponse.json({ error: "Gagal membuat jasa" }, { status: 500 });
+  }
+}
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const search = searchParams.get("search") || "";
   const page = parseInt(searchParams.get("page") || "1");
   const limit = parseInt(searchParams.get("limit") || "10");
-  const sortBy = searchParams.get("sortBy") || "id";   // default id
-  const order = searchParams.get("order") === "asc" ? "asc" : "desc"; // default desc
-  const skip = (page - 1) * limit;
+  const sortBy = searchParams.get("sortBy") || "id";
+  const order = searchParams.get("order") === "asc" ? "asc" : "desc";
 
-  const [jasa, total] = await Promise.all([
-    prisma.jasa.findMany({
-      where: {
-        OR: [
-          { title: { contains: search, mode: "insensitive" } },
-          { description: { contains: search, mode: "insensitive" } },
-        ],
-      },
-      orderBy: { [sortBy]: order },  // dynamic sorting
-      skip,
-      take: limit,
-    }),
-    prisma.jasa.count({
-      where: {
-        OR: [
-          { title: { contains: search, mode: "insensitive" } },
-          { description: { contains: search, mode: "insensitive" } },
-        ],
-      },
-    }),
-  ]);
+  try {
+    const where = search
+      ? {
+          OR: [
+            { title: { contains: search, mode: "insensitive" } },
+            { slug: { contains: search, mode: "insensitive" } },
+          ],
+        }
+      : {};
 
-  return NextResponse.json({
-    jasa,
-    pagination: {
-      total,
-      totalPages: Math.max(1, Math.ceil(total / limit)),
-      page,
-      limit,
-    },
-  });
+    const [total, jasa] = await Promise.all([
+      prisma.jasa.count({ where }),
+      prisma.jasa.findMany({
+        where,
+        skip: (page - 1) * limit,
+        take: limit,
+        orderBy: { [sortBy]: order },
+      }),
+    ]);
+
+    return NextResponse.json({
+      pagination: {
+        page,
+        totalPages: Math.ceil(total / limit),
+      },
+      jasa,
+    });
+  } catch (err) {
+    console.error("GET error", err);
+    return NextResponse.json({ error: "Gagal mengambil data" }, { status: 500 });
+  }
 }
 
-
-// POST tambah jasa
-export async function POST(req: Request) {
-  const data = await req.json();
-  const jasa = await prisma.jasa.create({
-    data: {
-      title: data.title,
-      slug: data.slug,
-      description: data.description,
-      content: data.content,
-      image: data.image,
-      tag: data.tag,
-    },
-  });
-  return NextResponse.json(jasa);
-}

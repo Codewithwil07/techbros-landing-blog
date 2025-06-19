@@ -8,30 +8,30 @@ export async function GET(req: Request) {
   const page = parseInt(searchParams.get("page") || "1");
   const limit = parseInt(searchParams.get("limit") || "10");
   const sortField = searchParams.get("sortField") || "id";
-  const sortOrder = searchParams.get("sortOrder") || "desc";
+  const sortOrder = (searchParams.get("sortOrder") as "asc" | "desc") || "desc";
 
   const skip = (page - 1) * limit;
 
+  const where = {
+    OR: [
+      { title: { contains: search, mode: "insensitive" } },
+      { description: { contains: search, mode: "insensitive" } },
+    ],
+  };
+
   const [blogs, total] = await Promise.all([
     prisma.blog.findMany({
-      where: {
-        OR: [
-          { title: { contains: search, mode: "insensitive" } },
-          { description: { contains: search, mode: "insensitive" } },
-        ],
-      },
+      where,
       orderBy: { [sortField]: sortOrder },
       skip,
       take: limit,
-    }),
-    prisma.blog.count({
-      where: {
-        OR: [
-          { title: { contains: search, mode: "insensitive" } },
-          { description: { contains: search, mode: "insensitive" } },
-        ],
+      include: {
+        tags: {
+          include: { tag: true },
+        },
       },
     }),
+    prisma.blog.count({ where }),
   ]);
 
   return NextResponse.json({
@@ -45,7 +45,6 @@ export async function GET(req: Request) {
   });
 }
 
-
 // POST tambah blog
 export async function POST(req: Request) {
   try {
@@ -54,13 +53,13 @@ export async function POST(req: Request) {
     const blog = await prisma.blog.create({
       data: {
         title: data.title,
-        slug: data.slug,
+        slug: data.slug, // slug sudah di-generate di halaman
         description: data.description,
-        content: data.content,
-        image: data.image,
-        date: data.date,
+        cover: data.cover,
+        content: data.content || null,
+        date: data.date ? new Date(data.date) : undefined,
         tags: {
-          create: data.tag.map((tagId: number) => ({
+          create: (data.tag || []).map((tagId: number) => ({
             tag: { connect: { id: tagId } },
           })),
         },
@@ -74,7 +73,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json(blog);
   } catch (error) {
-    console.error("Gagal create blog:", error);
+    console.error("❌ Gagal create blog:", error);
     return NextResponse.json({ message: "Gagal create blog" }, { status: 500 });
   }
 }

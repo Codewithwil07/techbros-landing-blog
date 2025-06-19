@@ -3,9 +3,15 @@ generator client {
 }
 
 datasource db {
+<<<<<<< HEAD
   provider = "postgresql"
   url      = env("DATABASE_URL")     // untuk runtime aplikasi
   directUrl = env("DIRECT_URL")      // untuk prisma migrate / introspect / studio
+=======
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+>>>>>>> a43ed3c (fix-img)
 }
 
 
@@ -45,29 +51,29 @@ model Session {
   user         User     @relation(fields: [userId], references: [id])
 }
 
-model Jasa {
-  id          Int      @id @default(autoincrement())
-  title       String
-  slug        String   @unique
-  description String
-  image       String
-  date        DateTime @default(now())
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  content     String
-}
-
 model Blog {
   id          Int       @id @default(autoincrement())
   title       String
   slug        String    @unique
-  content     String
-  image       String
+  description String
+  cover       String
+  content      Json?     // TAMBAH field baru untuk konten dinamis (nullable)
+  tags        BlogTag[]
   date        DateTime  @default(now())
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
+}
+
+model Jasa {
+  id          Int       @id @default(autoincrement())
+  title       String
+  slug        String    @unique
   description String
-  tags        BlogTag[]
+  cover       String
+  content     String     // TAMBAH field baru untuk konten dinamis (nullable)
+  date        DateTime  @default(now())
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }
 
 model Tag {

@@ -12,7 +12,7 @@ type CardListProps = {
 };
 
 const ContentCard = ({ items, basePath }: CardListProps) => {
-  const [imgSrc, setImgSrc] = useState(items.image || "/globe.svg");
+  const [imgSrc, setImgSrc] = useState(items.cover|| "/globe.svg");
 
   return (
     <div key={items.id}>

@@ -1,6 +1,6 @@
 import JasaForm from "@/components/admin/jasa/JasaForm";
   
-const getCurrentBlog = async (id: string) => {
+const getcurrentJasa = async (id: string) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/jasa/${id}`,
     {
@@ -15,18 +15,18 @@ const getCurrentBlog = async (id: string) => {
   return res.json();
 };
 
-interface BlogFormPageProps {
+interface JasaFormPageProps {
   params: { id: string }; // perbaiki tipe params
 }
 
-export default async function BlogFormPage({ params }: BlogFormPageProps) {
+export default async function JasaFormPage({ params }: JasaFormPageProps) {
   const { id } = params;
-  const currentBlog = await getCurrentBlog(id);
+  const currentJasa = await getcurrentJasa(id);
 
   return (
     <div>
       <h1 className="text-2xl font-bold mb-4">Edit Jasa</h1>
-      <JasaForm initialData={currentBlog} />
+      <JasaForm initialData={currentJasa}  />
     </div>
   );
 }

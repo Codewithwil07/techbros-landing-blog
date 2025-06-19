@@ -6,8 +6,9 @@ import {
   flexRender,
   ColumnDef,
 } from "@tanstack/react-table";
-import  Button from "@/components/ui/custom/Button";
+import Button from "@/components/ui/custom/Button";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   Dialog,
   DialogContent,
@@ -15,7 +16,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { useRouter } from "next/navigation";
 import {
   Select,
   SelectContent,
@@ -23,6 +23,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+
+const LIMIT = 5;
 
 export default function JasaTable() {
   const [data, setData] = React.useState<any[]>([]);
@@ -35,16 +37,17 @@ export default function JasaTable() {
   const [order, setOrder] = React.useState<"asc" | "desc">("desc");
   const [loading, setLoading] = React.useState(false);
   const [deleteId, setDeleteId] = React.useState<number | null>(null);
-
   const router = useRouter();
+  const searchTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
 
-  const fetchData = async () => {
+  const fetchData = async (signal?: AbortSignal) => {
     setLoading(true);
     try {
       const res = await fetch(
         `/api/admin/jasa?search=${encodeURIComponent(search)}&page=${
           pagination.page
-        }&limit=5&sort=${sort}&order=${order}`
+        }&limit=${LIMIT}&sortBy=${sort}&order=${order}`,
+        { signal }
       );
       const result = await res.json();
       setData(Array.isArray(result.jasa) ? result.jasa : []);
@@ -53,15 +56,28 @@ export default function JasaTable() {
         totalPages: result.pagination.totalPages,
       });
     } catch (err) {
-      console.error("Fetch error:", err);
+      if (err.name !== "AbortError") {
+        console.error("Fetch error:", err);
+      }
     } finally {
       setLoading(false);
     }
   };
 
   React.useEffect(() => {
-    fetchData();
+    const controller = new AbortController();
+    fetchData(controller.signal);
+    return () => controller.abort();
   }, [pagination.page, search, sort, order]);
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (searchTimeoutRef.current) clearTimeout(searchTimeoutRef.current);
+    searchTimeoutRef.current = setTimeout(() => {
+      setPagination((p) => ({ ...p, page: 1 }));
+      setSearch(value);
+    }, 300);
+  };
 
   const toggleSort = (col: string) => {
     if (sort === col) {
@@ -76,7 +92,7 @@ export default function JasaTable() {
     () => [
       {
         header: "No",
-        cell: ({ row }) => (pagination.page - 1) * 5 + row.index + 1,
+        cell: ({ row }) => (pagination.page - 1) * LIMIT + row.index + 1,
       },
       {
         accessorKey: "title",
@@ -116,7 +132,7 @@ export default function JasaTable() {
               </Button>
             </Link>
             <Button
-              variant="secondary"
+              variant="solid"
               size="sm"
               onClick={() => setDeleteId(row.original.id)}
             >
@@ -143,8 +159,8 @@ export default function JasaTable() {
         method: "DELETE",
       });
       if (res.ok) {
+        await fetchData();
         router.refresh();
-        fetchData();
       } else {
         console.error("Gagal hapus");
       }
@@ -162,11 +178,7 @@ export default function JasaTable() {
         <input
           className="border rounded p-2 w-full md:w-1/3"
           placeholder="Search jasa..."
-          value={search}
-          onChange={(e) => {
-            setPagination((p) => ({ ...p, page: 1 }));
-            setSearch(e.target.value);
-          }}
+          onChange={handleSearchChange}
         />
         <div className="flex gap-x-3 items-center">
           <Select value={sort} onValueChange={(value) => setSort(value)}>
@@ -179,7 +191,6 @@ export default function JasaTable() {
               <SelectItem value="createdAt">Created At</SelectItem>
             </SelectContent>
           </Select>
-
           <Select
             value={order}
             onValueChange={(value) => setOrder(value as "asc" | "desc")}
@@ -194,6 +205,7 @@ export default function JasaTable() {
           </Select>
         </div>
       </div>
+
       <table className="w-full border rounded">
         <thead className="bg-muted">
           {table.getHeaderGroups().map((headerGroup) => (
@@ -240,12 +252,12 @@ export default function JasaTable() {
 
       <div className="flex justify-between items-center">
         <Button
-          variant="secondary"
+          variant="solid"
           size="sm"
           onClick={() =>
             setPagination((p) => ({ ...p, page: Math.max(1, p.page - 1) }))
           }
-          disabled={pagination.page === 1}
+          disabled={pagination.page === 1 || loading}
         >
           Prev
         </Button>
@@ -253,7 +265,7 @@ export default function JasaTable() {
           Page {pagination.page} of {pagination.totalPages}
         </div>
         <Button
-          variant="secondary"
+          variant="solid"
           size="sm"
           onClick={() =>
             setPagination((p) => ({
@@ -261,7 +273,11 @@ export default function JasaTable() {
               page: Math.min(p.totalPages, p.page + 1),
             }))
           }
-          disabled={pagination.page === pagination.totalPages}
+          disabled={
+            pagination.page >= pagination.totalPages ||
+            loading ||
+            pagination.totalPages === 0
+          }
         >
           Next
         </Button>
@@ -282,7 +298,7 @@ export default function JasaTable() {
               Batal
             </Button>
             <Button
-              variant="secondary"
+              variant="solid"
               onClick={handleDelete}
               disabled={loading}
             >

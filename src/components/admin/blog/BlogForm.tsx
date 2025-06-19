@@ -10,26 +10,29 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import TagDropdown from "@/components/ui/custom/TagDropdown";
 import { slugify } from "@/utils/slugify";
+import dynamic from "next/dynamic";
+
+const EditorWrapper = dynamic(
+  () => import("@/components/admin/EditorWrapper"),
+  { ssr: false }
+);
 
 const schema = z.object({
   title: z.string().min(3, "Title minimal 3 karakter"),
   description: z.string().min(5, "Description minimal 5 karakter"),
   content: z.string().min(10, "Content minimal 10 karakter"),
-  image: z.string().url("Harus URL gambar valid"),
-  tag: z.array(z.number(), "Tag harus ID").optional(),
+  cover: z.string().url("Harus URL gambar valid"),
+  tag: z.array(z.number()).optional(),
 });
 
 type FormValues = z.infer<typeof schema>;
 
-export default function BlogForm({
-  initialData = {},
-}: {
-  initialData?: any;
-}) {
+export default function BlogForm({ initialData = {} }: { initialData?: any }) {
   const router = useRouter();
   const [availableTags, setAvailableTags] = useState<
     { id: number; name: string }[]
   >([]);
+  const [initialized, setInitialized] = useState(false);
 
   const {
     register,
@@ -43,29 +46,28 @@ export default function BlogForm({
     defaultValues: {
       title: "",
       description: "",
+      cover: "",
       content: "",
-      image: "",
       tag: [],
     },
   });
 
   const tags = watch("tag") || [];
-  const title = watch("title") || "";
-  const slug = slugify(title);
+  // const title = watch("title") || "";
+  // const slug = slugify(title);
 
   useEffect(() => {
-    if (initialData) {
+    if (initialData && initialData.id && !initialized) {
       reset({
         title: initialData.title || "",
         description: initialData.description || "",
-        content: initialData.content || "",
-        image: initialData.image || "",
-        tag: initialData.tags
-          ? initialData.tags.map((t: any) => t.tag.id)
-          : [],
+        cover: initialData.cover || "",
+        content: initialData.content ? JSON.stringify(initialData.content) : "",
+        tag: initialData.tags ? initialData.tags.map((t: any) => t.tag.id) : [],
       });
+      setInitialized(true);
     }
-  }, [initialData?.id]);
+  }, []);
 
   useEffect(() => {
     fetch("/api/admin/tag")
@@ -77,8 +79,10 @@ export default function BlogForm({
   const onSubmit = async (data: FormValues) => {
     const finalData = {
       ...data,
-      slug,
+      slug: slugify(data.title),
     };
+
+     console.log(finalData)
 
     try {
       const res = await fetch(
@@ -114,7 +118,13 @@ export default function BlogForm({
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 max-w-lg">
+    <form
+      onSubmit={(e) => {
+        e.preventDefault(); // cegah submit default
+        handleSubmit(onSubmit)(e);
+      }}
+      className="space-y-4 max-w-lg"
+    >
       <div>
         <label className="block text-sm mb-1">Title</label>
         <Input {...register("title")} placeholder="Title" />
@@ -125,25 +135,37 @@ export default function BlogForm({
 
       <div>
         <label className="block text-sm mb-1">Description</label>
-        <Textarea {...register("description")} placeholder="Description" rows={2} />
+        <Textarea
+          {...register("description")}
+          placeholder="Description"
+          rows={2}
+        />
         {errors.description && (
           <p className="text-sm text-red-600">{errors.description.message}</p>
         )}
       </div>
 
       <div>
-        <label className="block text-sm mb-1">Content</label>
-        <Textarea {...register("content")} placeholder="Content" rows={5} />
-        {errors.content && (
-          <p className="text-sm text-red-600">{errors.content.message}</p>
+        <label className="block text-sm mb-1">Cover</label>
+        <Input
+          {...register("cover")}
+          placeholder="https://example.com/cover.jpg"
+        />
+        {errors.cover && (
+          <p className="text-sm text-red-600">{errors.cover.message}</p>
         )}
       </div>
 
       <div>
-        <label className="block text-sm mb-1">Image URL</label>
-        <Input {...register("image")} placeholder="https://example.com/image.jpg" />
-        {errors.image && (
-          <p className="text-sm text-red-600">{errors.image.message}</p>
+        <label className="block text-sm mb-1">Content</label>
+        <EditorWrapper
+          onChange={(data) => setValue("content", JSON.stringify(data))}
+          initialData={
+            initialData.content ? JSON.parse(initialData.content) : undefined
+          }
+        />
+        {errors.content && (
+          <p className="text-sm text-red-600">{errors.content.message}</p>
         )}
       </div>
 
