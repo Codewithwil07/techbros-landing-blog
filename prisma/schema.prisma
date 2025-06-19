@@ -3,15 +3,8 @@ generator client {
 }
 
 datasource db {
-<<<<<<< HEAD
   provider = "postgresql"
   url      = env("DATABASE_URL")     // untuk runtime aplikasi
-  directUrl = env("DIRECT_URL")      // untuk prisma migrate / introspect / studio
-=======
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
->>>>>>> a43ed3c (fix-img)
 }
 
 
