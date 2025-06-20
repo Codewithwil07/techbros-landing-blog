@@ -1,7 +1,6 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { prisma } from "@/lib/prisma";
-import bcrypt from "bcrypt";
 
 export const authOptions = {
   providers: [
@@ -24,11 +23,8 @@ export const authOptions = {
           throw new Error("Username tidak ditemukan");
         }
 
-        const isValid = await bcrypt.compare(
-          credentials.password,
-          user.password
-        );
-        if (!isValid) {
+        // Tanpa hashing, langsung cek plain text
+        if (credentials.password !== user.password) {
           throw new Error("Password salah");
         }
 
