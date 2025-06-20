@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
-import Button from "@/components/ui/custom/Button";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
@@ -10,6 +9,7 @@ export default function LoginPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     const res = await signIn("credentials", {
       username,
       password,
@@ -20,7 +20,7 @@ export default function LoginPage() {
     if (res?.error) {
       setError(res.error);
     } else {
-      window.location.href = "/admin/dashboard";
+      window.location.href = res?.url ?? "/admin/dashboard";
     }
   };
 
@@ -46,13 +46,12 @@ export default function LoginPage() {
             className="w-full border p-2 rounded"
             required
           />
-          <Button
+          <button
             type="submit"
-            variant="solid"
-            className="w-full cursor-pointer font-semibold py-2"
+            className="w-full bg-blue-600 text-white py-2 rounded font-semibold hover:bg-blue-700"
           >
             Login
-          </Button>
+          </button>
         </form>
       </div>
     </div>
